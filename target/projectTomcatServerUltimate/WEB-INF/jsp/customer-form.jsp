@@ -17,6 +17,7 @@
 
         Last name (*): <form:input path="lastName"/>
 
+        <!-- Display error message -->
         <form:errors path="lastName" cssClass="error"/>
 
         <br><br>

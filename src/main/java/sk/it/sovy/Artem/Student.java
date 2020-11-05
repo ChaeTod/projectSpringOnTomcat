@@ -6,15 +6,17 @@ public class Student {
     private String firstName;
     private String lastName;
     private String country;
+
     private String favoriteLanguage;
-    private String[] operatingSystems;
+
+    private String[] operatingSystems; // an array of multiple options
 
     private LinkedHashMap<String, String> countryOptions;  // first string - key, second string - value
 
     public Student() {
 
         // populate country options: user ISO country code
-        countryOptions = new LinkedHashMap<>();
+        countryOptions = new LinkedHashMap<>();  // collection of name valued pairs
         countryOptions.put("BR", "Brazil");
         countryOptions.put("FR", "France");
         countryOptions.put("DE", "Germany");

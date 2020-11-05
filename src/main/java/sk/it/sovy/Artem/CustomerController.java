@@ -16,22 +16,24 @@ import javax.validation.Valid;
 public class CustomerController {
 
     @InitBinder
-    public void initBinder(WebDataBinder dataBinder) {
-        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
-        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+    public void initBinder(WebDataBinder dataBinder) { // pre-process every string from data - remove white spaces - if string has only white spaces - trim it to null
+        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true); // StringTrimmerEditor - defined in spring API
+        // - removes whitespaces - leading and trailing
+        // - true - if it's all whitespace trim it down to null
+        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor); // register this custom trimmer editor on the data binder
     }
 
     @RequestMapping("/showForm")
     public String showForm(Model theModel) {
-        theModel.addAttribute("customer", new Customer());
+        theModel.addAttribute("customer", new Customer()); // first - name, second - value
         return "customer-form";
     }
 
     @RequestMapping("/processForm")
     public String processForm(
             @Valid @ModelAttribute("customer") Customer theCustomer,
-            BindingResult theBindingResult
-    ) {
+            BindingResult theBindingResult) // tell Spring to validate theCustomer object
+    {
 
         System.out.println("Lastname: |" + theCustomer.getLastName() + " " + "Firstname: |" + theCustomer.getFirstName());
         System.out.println("Binding result: " + theBindingResult);

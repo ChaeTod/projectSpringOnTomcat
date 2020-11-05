@@ -12,6 +12,8 @@ public class CodeValidation implements ConstraintValidator<CourseCode, String> {
         coursePrefix = theCode.value();
     }
 
+    // perform validation rules on Customer object
+    // results of validation placed in the BindingResult - begind the scenes
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
 

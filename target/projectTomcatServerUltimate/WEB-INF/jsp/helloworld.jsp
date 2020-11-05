@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        Hello world Spring!
+        Hello world Spring, mate!
 
         <br><br>
 

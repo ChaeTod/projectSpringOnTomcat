@@ -20,13 +20,6 @@ public class StudentController {
         return "student-form";
     }
 
-    /*@RequestMapping(value= "/processFrom")
-    public String processForm(@ModelAttribute("student") Student student) {
-        // log the input data
-        System.out.println("Student: " + student.getFirstName() + " " + student.getLastName());
-        return "jsp/view/student-conformation.jsp";
-    }*/
-
     @RequestMapping("/processForm")
     public String processForm(@ModelAttribute("student") Student theStudent) {
 

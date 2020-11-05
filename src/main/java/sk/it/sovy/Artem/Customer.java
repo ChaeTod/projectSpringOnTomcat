@@ -7,8 +7,8 @@ import javax.validation.constraints.*;
 public class Customer {
     private String firstName;
 
-    @NotNull(message = "is required")
-    @Size(min = 1, message = "is required")
+    @NotNull(message = "is required")  // must be not empty
+    @Size(min = 1, message = "is required") // must have size at least 1
     private String lastName;
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 characters or digits")
@@ -17,9 +17,9 @@ public class Customer {
     @NotNull(message = "is required")
     @Min(value = 0, message = "must be greater than or equal to zero")
     @Max(value = 11, message = "must be less than or equal to 11")
-    private Integer freePasses;
+    private Integer freePasses; // change it to Integer in order to override the String -> int conversion
 
-    @CourseCode
+    @CourseCode  // custom java annotation
     private String courseCode;
 
     public String getFirstName() {

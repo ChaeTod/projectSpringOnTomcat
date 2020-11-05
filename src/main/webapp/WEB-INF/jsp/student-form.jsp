@@ -19,11 +19,16 @@
 
                 <form:select path="country">
                     <form:options items="${student.countryOptions}"/>
+                    <!-- items - refer to the collection of data
+                         spring will call student.getCountryOptions
+                    -->
                 </form:select>
 
             <br><br>
 
             Favorite Language:
+
+            <!-- On submit spring will call student.setFavoriteLanguage() -->
             Java <form:radiobutton path="favoriteLanguage" value="Java"/>
             C# <form:radiobutton path="favoriteLanguage" value="C#"/>
             PHP <form:radiobutton path="favoriteLanguage" value="PHP"/>
@@ -33,6 +38,8 @@
             <br><br>
 
             Operating Systems:
+
+            <!-- On submit spring will call student.setOperatingSystems() -->
             Linux <form:checkbox path="operatingSystems" value="linux"/>
             Mac OS <form:checkbox path="operatingSystems" value="Mac OS"/>
             MS Windows <form:checkbox path="operatingSystems" value="MS Windows"/>
